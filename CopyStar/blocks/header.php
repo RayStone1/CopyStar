@@ -2,7 +2,6 @@
 require_once "php/connect.php";
 $sql="SELECT * FROM `receptions` WHERE `total`!='Здоров' AND `total`!='waiting'";
 $num_bol=$mysql->query($sql)->num_rows;
-
 session_start();
 $user=$_SESSION['user'];
 ?>
@@ -24,22 +23,30 @@ $user=$_SESSION['user'];
 <header>
     <div class="container">
         <div class="header__inner">
-            <a href="/"><h1>CopyStar</h1></a>
+            <a href="/"><h1 class="logo">CopyStar</h1></a>
             <div class="menu">
-                <ul>   
-                    <?php
-                    if(isset($user)){
-                    ?>
-                    <li><a href="cabinet.php" >Личный кабинет</a></li>
-                    <li><a href="php/exit.php">Выход</a></li>
-                    <?php
+                <span class="cart">                	
+                    <a href="cart.php"><img src="/img/ico-cart.svg" alt=""></a>
+                    <span>0</span>
+                </span>
+                <span>
+                    <ul>   
+                        <?php
+                        if(isset($user)){
+                        ?>
+                        <li><a href="cabinet.php" >Личный кабинет</a></li>
+                        <li><a href="php/exit.php">Выход</a></li>
+                        <li><?= $user['surname_user']," ",$user['name_user']?></li>
+                        <?php
                         }else{
-                    ?>
-                    <li><a href="#" id="open_sign">Войти</a></li>
-                    <?php
-                        }
-                    ?>
-                </ul>
+                        ?>
+                        <li><a href="#" id="open_sign" class="sign_up">Войти</a></li>
+                        <?php
+                            }
+                        ?>
+                    </ul>
+                </span>
+               
             </div>
             
         </div>

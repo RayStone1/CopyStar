@@ -5,7 +5,7 @@
             <form action="php/reguser.php" method="post" id="reg_form">
                 <h1>Регистрация</h1>
                 <br>
-                <h5 class="sub__title">Личный данные и полис</h5>
+                <h5 class="sub__title">Личный данные</h5>
                 <div class="cols">
                     <p>
                         <label for="">Имя</label>
